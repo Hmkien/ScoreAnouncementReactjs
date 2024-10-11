@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ExamList from "./Components/Exam/ExamList";
+import ConfigExam from "./Components/ConfigExam/ConfigExam";
+import Navigation from "./Components/Navigation/navigation";
+import Footer from "./Components/Navigation/footer";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="root">
+      <Navigation />
+      <main>
+        <Routes>
+          <Route path="/" element={<ExamList />} />
+          <Route path="/config-exam/:examId" element={<ConfigExam />} />
+        </Routes>
+      </main>
+      <Footer />
     </div>
   );
-}
-
+};
 export default App;
